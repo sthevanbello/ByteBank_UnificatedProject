@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace ByteBank.Entities.Employees
 {
-    class Auxiliary : Employee
+    public class Auxiliary : Employee
     {
         public Auxiliary(string name, string cpf) : base(name, cpf, 2000)
         {
             
         }
 
-        public override double GetBonification()
+        internal protected override double GetBonification()
         {
             return Salary * 0.2;
         }

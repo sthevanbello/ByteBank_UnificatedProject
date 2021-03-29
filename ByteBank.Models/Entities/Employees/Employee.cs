@@ -13,7 +13,7 @@ namespace ByteBank.Entities.Employees
         protected string CPF { get; set; }
         public double Salary { get; protected set; }
 
-        
+
 
         public Employee(string name, string cpf, double salary)
         {
@@ -28,13 +28,7 @@ namespace ByteBank.Entities.Employees
             TotalEmployee++;
         }
 
-        
-
-        public abstract double GetBonification();
-
-
+        internal protected abstract double GetBonification();
         public abstract void PlusSalary();
-        
-
     }
 }

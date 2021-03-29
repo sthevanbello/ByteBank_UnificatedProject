@@ -14,9 +14,9 @@ namespace ByteBank.Entities.Employees
             Name = name;
             CPF = cpf;
         }
-        
 
-        public override double GetBonification()
+
+        internal protected override double GetBonification()
         {
             return Salary * 0.25;
         }

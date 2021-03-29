@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace ByteBank.Entities.Employees
 {
-    class Designer : Employee
+    public class Designer : Employee
     {
         public Designer(string name, string cpf) : base(name, cpf, 3000)
         {
-            
+
         }
-        public override double GetBonification()
+        internal protected override double GetBonification()
         {
             return Salary * 0.17;
         }

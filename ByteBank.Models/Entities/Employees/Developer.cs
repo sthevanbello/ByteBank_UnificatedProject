@@ -13,7 +13,7 @@ namespace ByteBank.Entities.Employees
 
         }
 
-        public override double GetBonification()
+        internal protected override double GetBonification()
         {
             return Salary * 0.1;
         }

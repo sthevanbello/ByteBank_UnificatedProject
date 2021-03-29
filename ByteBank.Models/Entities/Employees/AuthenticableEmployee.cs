@@ -1,14 +1,12 @@
-﻿using ByteBank.System;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ByteBank.Models.System;
+using ByteBank.System;
+
 
 namespace ByteBank.Entities.Employees
 {
     public abstract class AuthenticableEmployee : Employee, IAuthenticable
     {
+        private AuthenticationHelper _authenticationHelper = new AuthenticationHelper();
         public string Password { get; set; }
 
         public AuthenticableEmployee(string name, string cpf, double salary) : base(name, cpf, salary)
@@ -17,7 +15,7 @@ namespace ByteBank.Entities.Employees
 
         public bool Authenticate(string password)
         {
-            return Password == password;
+            return _authenticationHelper.PasswordCompare(Password, password);
         }
     }
 }

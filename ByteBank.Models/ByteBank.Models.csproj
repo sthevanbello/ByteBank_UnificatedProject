@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="Entities\Account.cs" />
+    <Compile Include="System\AuthenticationHelper.cs" />
     <Compile Include="Entities\BonificationManager.cs" />
     <Compile Include="Entities\Client.cs" />
     <Compile Include="Entities\ComercialPartner.cs" />
@@ -58,6 +59,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="System\IAuthenticable.cs" />
     <Compile Include="System\InternalSystem.cs" />
+    <Compile Include="TestClass.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
