@@ -8,6 +8,10 @@ using System.Threading.Tasks;
 namespace ByteBank.Entities
 
 {
+    /// <summary>
+    /// Define the characteristics of a ByteBank account
+    /// </summary>
+
     public class Account
     {
         public static double OperationTax { get; private set; }
@@ -24,6 +28,13 @@ namespace ByteBank.Entities
         {
         }
 
+        /// <summary>
+        /// Create an instance of Account with holder, agency number, account number and opening balance 
+        /// </summary>
+        /// <param name="holder"></param>
+        /// <param name="agencyNumber">Value greater than zero for <see cref="AgencyNumber"/></param>
+        /// <param name="accountNumber">Value greater than zero <see cref="AccountNumber"/></param>
+        /// <param name="balance">Value greater than zero</param>
         public Account(Client holder, int agencyNumber, int accountNumber, double balance)
         {
             Holder = holder;
@@ -43,6 +54,9 @@ namespace ByteBank.Entities
             }
 
         }
+        /// <summary>
+        /// Check the account balance
+        /// </summary>
         public double Balance
         {
             get
@@ -73,6 +87,13 @@ namespace ByteBank.Entities
             }
             _balance += value;
         }
+
+        /// <summary>
+        /// check the balance and withdraw the amount <see cref="Balance"/>
+        /// </summary>
+        /// <exception cref="ArgumentException">Exception thrown when a negative value is entered in the <paramref name="value"/>.</exception>
+        /// <exception cref="BalanceInsufficientException">Exception thrown when the value of <paramref name="value"/> is bigger than <see cref="Balance"/>.</exception>
+        /// <param name="value">Withdrawal amount must be greater than zero and less than the <see cref="Balance"/></param>
         public void Withdraw(double value)
         {
             if (value < 0)
