@@ -26,19 +26,22 @@ namespace ByteBank.Agency
 
             #endregion
 
-            DateTime dateEndPayment = new DateTime(2021, 08, 30);
 
-            TimeSpan differenceTime = dateEndPayment - DateTime.Now;
+            string url = "http://www.bytebank.com/cambio?moedaOrigem=real&moedaDestino=dolar";
 
-            Console.WriteLine(dateEndPayment.ToString("dd/MM/yyyy"));
+            ExtractValueArgumentsURL extractValues = new ExtractValueArgumentsURL(url);
 
-            Console.WriteLine($"Final date for payment in {TimeSpanHumanizeExtensions.Humanize(differenceTime)}");
-            
+            string term = "moedaOrigem";
+
+            string extracted = extractValues.GetValue(term);
+
+            Console.WriteLine(extracted);
+
+
+
 
 
             Console.ReadKey();
         }
-
-
     }
 }
