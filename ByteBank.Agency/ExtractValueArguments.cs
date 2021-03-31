@@ -25,17 +25,19 @@ namespace ByteBank.Agency
 
         public string GetValue(string nameParameter)
         {
+            string ArgumentToUpper = _arguments.ToUpper();
+            nameParameter = nameParameter.ToUpper();
+
             string term = nameParameter + "=";
 
-            int indexTerm = _arguments.IndexOf(term);
+            int indexTerm = ArgumentToUpper.IndexOf(term);
 
             string result = _arguments.Substring(indexTerm + term.Length);
 
             int indexE = result.IndexOf('&');
 
-            if (indexE == -1)
+            if (indexE < 0)
             {
-
                 return result;
             }
 

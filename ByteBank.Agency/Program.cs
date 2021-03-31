@@ -9,6 +9,7 @@ using ByteBank.Exceptions;
 using ByteBank.Models;
 using ByteBank.Models.System;
 using Humanizer;
+using System.Text.RegularExpressions;
 
 namespace ByteBank.Agency
 {
@@ -26,19 +27,76 @@ namespace ByteBank.Agency
 
             #endregion
 
+            #region Test Extract value
+            //string url = "http://www.bytebank.com/cambio?moedaOrigem=real&moedaDestino=dolar";
 
-            string url = "http://www.bytebank.com/cambio?moedaOrigem=real&moedaDestino=dolar";
+            //ExtractValueArgumentsURL extractValues = new ExtractValueArgumentsURL(url);
 
-            ExtractValueArgumentsURL extractValues = new ExtractValueArgumentsURL(url);
+            //string term1 = "moedaOrigem";
 
-            string term = "moedaOrigem";
+            //string extracted = extractValues.GetValue(term1);
 
-            string extracted = extractValues.GetValue(term);
+            //Console.WriteLine("Moeda de origem: " + extracted);
 
-            Console.WriteLine(extracted);
+            //string term2 = "moedaDestino";
+            //string extracted2 = extractValues.GetValue(term2);
+            //Console.WriteLine("Moeda de destino: " + extracted2);
+            #endregion
+
+            #region StartsWith EndsWith Contains
+
+            //string urlTest = "http://www.bytebank.com/cambio";
+            //int indiceByteBank = urlTest.IndexOf("http://www.bytebank.com");
+
+            //Console.WriteLine(indiceByteBank == 0);
+
+            //Console.WriteLine(urlTest.StartsWith("http://www.bytebank.com"));
+            //Console.WriteLine(urlTest.EndsWith("cambio"));
+            #endregion
+
+            #region Patterns
+
+            //            string padrao =
+            //"[0123456789][0123456789][0123456789][0123456789][-][0123456789][0123456789][0123456789][0123456789]";
+
+            //            string padrao2 = "[0-9][0-9][0-9][0-9][-][0-9][0-9][0-9][0-9]";
+            //            string padrao3 = "[0-9]{4}[-][0-9]{4}";
+            //            string padrao4 = "[0-9]{4,5}[-][0-9]{4,5}";
+            //            string padrao5 = "[0-9]{4,5}[-]{0,1}[0-9]{4,5}";
+            //            string padrao6 = "[0-9]{4,5}-{0,1}[0-9]{4,5}";
+            //            string padrao7 = "[0-9]{4,5}-?[0-9]{4,5}";
+
+            //            string textoDeTeste = "Meu nome é Guilherme, me ligue em 94784-4546";
+            //            string textoDeTeste2 = "Meu nome é Guilherme, me ligue em 947844546";
+
+            //            Match resultado = Regex.Match(textoDeTeste, padrao);
+            //            Match resultado2 = Regex.Match(textoDeTeste, padrao2);
+            //            Match resultado3 = Regex.Match(textoDeTeste, padrao3);
+            //            Match resultado4 = Regex.Match(textoDeTeste, padrao4);
+            //            Match resultado5 = Regex.Match(textoDeTeste2, padrao5);
+            //            Match resultado6 = Regex.Match(textoDeTeste, padrao6);
+            //            Match resultado7 = Regex.Match(textoDeTeste2, padrao6);
+            //            Match resultado8 = Regex.Match(textoDeTeste, padrao7);
+            //            Match resultado9 = Regex.Match(textoDeTeste2, padrao7);
+
+            //            Console.WriteLine(resultado.Value);
+            //            Console.WriteLine(resultado2.Value);
+            //            Console.WriteLine(resultado3.Value);
+            //            Console.WriteLine(resultado4.Value);
+            //            Console.WriteLine(resultado5.Value);
+            //            Console.WriteLine(resultado6.Value);
+            //            Console.WriteLine(resultado7.Value);
+            //            Console.WriteLine(resultado8.Value);
+            //            Console.WriteLine(resultado9.Value);
+
+
+            #endregion
+
+            #region Class object
 
 
 
+            #endregion
 
 
             Console.ReadKey();
