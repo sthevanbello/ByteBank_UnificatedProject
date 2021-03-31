@@ -18,12 +18,12 @@ namespace ByteBank.Agency
         static void Main(string[] args)
         {
             #region Test
-            //Client client1 = new Client(name: "João", occupation: "Developer", cpf: "225846589-54");
-            //Account account1 = new Account(client1, agencyNumber: 123, accountNumber: 126456, balance: 1000);
+            Client client1 = new Client(name: "João", occupation: "Developer", cpf: "225846589-54");
+            Account account1 = new Account(client1, agencyNumber: 123, accountNumber: 126456, balance: 1000);
 
-            //Auxiliary auxiliary1 = new Auxiliary("José", cpf: "224159753-64");
+            Auxiliary auxiliary1 = new Auxiliary("José", cpf: "224159753-64");
 
-            //Director director1 = new Director(name: "Sthevan", cpf: "229852159-74");
+            Director director1 = new Director(name: "Sthevan", cpf: "229852159-74");
 
             #endregion
 
@@ -94,6 +94,34 @@ namespace ByteBank.Agency
 
             #region Class object
 
+            //object conta = new Account(client1, agencyNumber: 123, accountNumber: 126456, balance: 1000);
+            //Console.WriteLine(conta);
+
+
+            #endregion
+
+            #region Equals
+
+            Client client2 = null; /*new Client(name: "João", occupation: "Developer", cpf: "225846589-54");*/
+
+
+            Console.WriteLine(client1 == client2);
+            try
+            {
+                if (client1.Equals(client2))
+                {
+                    Console.WriteLine("Equals");
+                }
+                else
+                {
+                    Console.WriteLine("Different");
+                }
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex.Message);
+            }
 
 
             #endregion

@@ -30,5 +30,16 @@ namespace ByteBank.Entities
             Occupation = occupation;
             Cpf = cpf;
         }
+
+        public override bool Equals(object obj)
+        {
+            Client other = obj as Client;
+
+            if (!(obj is Client))
+            {
+                throw new Exception("Object not is a object Client");
+            }
+            return Cpf == other.Cpf;
+        }
     }
 }
