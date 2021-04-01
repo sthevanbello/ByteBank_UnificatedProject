@@ -133,5 +133,17 @@ namespace ByteBank.Entities
             }
 
         }
+
+        public override bool Equals(object obj)
+        {
+            Account other = obj as Account;
+
+            if (!(obj is Account))
+            {
+                throw new Exception("Not is a object Account!");
+            }
+
+            return AccountNumber == other.AccountNumber;
+        }
     }
 }
