@@ -10,6 +10,7 @@ using ByteBank.Models;
 using ByteBank.Models.System;
 using Humanizer;
 using System.Text.RegularExpressions;
+using ByteBank.Agency.Extensions;
 
 namespace ByteBank.Agency
 {
@@ -28,24 +29,88 @@ namespace ByteBank.Agency
 
             #endregion
 
-            List<int> idades = new List<int>();
+            #region Var
 
-            idades.Add(1);
-            idades.Add(5);
-            idades.Add(14);
-            idades.Add(25);
-            idades.Add(38);
-            idades.Add(61);
+            //var idades = new List<int>();
+            //var names = new List<string>();
+
+            //names.AddVarious("a", "c", "j", "s", "b");
+            //names.Sort();
+
+            //idades.Add(10);
 
 
-            ListExtensions.AddVarious(idades, 1, 2, 3, 4, 5, 6);
+            //idades.AddVarious(15, 25, 3, 45, 5);
+            //idades.Sort();
 
-            idades.AddVarious(10, 20, 30, 40, 50, 60);
 
-            foreach (var item in idades)
+
+            //foreach (var item in idades)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+            //foreach (var item in names)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+
+
+
+            //var account = new Account();
+
+            //account.Deposit(1500);
+
+
+
+
+            #endregion
+
+            #region Test Var, Sort, OrderBy, Lambda, Linq
+
+            Client client1 = new Client(name: "João", occupation: "Developer", cpf: "225846589-54");
+            Client client2 = new Client(name: "Maria", occupation: "Developer", cpf: "225846589-54");
+            Client client3 = new Client(name: "Alex", occupation: "Developer", cpf: "225846589-54");
+            Client client4 = new Client(name: "Pedro", occupation: "Developer", cpf: "225846589-54");
+
+            Account account1 = new Account(client1, agencyNumber: 123, accountNumber: 456785, balance: 1000);
+            Account account2 = new Account(client2, agencyNumber: 123, accountNumber: 456781, balance: 1000);
+            Account account3 = new Account(client3, agencyNumber: 123, accountNumber: 456784, balance: 1000);
+            Account account4 = new Account(client4, agencyNumber: 123, accountNumber: 456780, balance: 1000);
+
+            var accounts = new List<Account>();
+            accounts.Add(account1);
+            accounts.Add(account2);
+            accounts.Add(account3);
+            accounts.Add(null);
+            accounts.Add(account4);
+
+            //accounts.Sort();
+
+            //foreach (var item in accounts)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+            //var orderAccount = accounts.OrderBy(account =>
+            //{
+            //    if (account != null)
+            //    {
+            //    return account.AccountNumber;
+            //    }
+            //});
+            var orderAccount = accounts.Where(account => account != null).OrderBy(account => account.Holder.Name);
+
+            
+
+            foreach (var item in orderAccount)
             {
                 Console.WriteLine(item);
             }
+
+            #endregion
+
 
             Console.ReadKey();
         }

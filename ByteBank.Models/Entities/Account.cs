@@ -12,7 +12,7 @@ namespace ByteBank.Entities
     /// Define the characteristics of a ByteBank account
     /// </summary>
 
-    public class Account
+    public class Account : IComparable
     {
         public static double OperationTax { get; private set; }
         public Client Holder { get; set; }
@@ -144,6 +144,39 @@ namespace ByteBank.Entities
             }
 
             return AccountNumber == other.AccountNumber;
+        }
+
+        public override string ToString()
+        {
+            return $"Name: {Holder.Name} - Accont Number: {AccountNumber} - Balance: {Balance:C}";
+        }
+
+        public int CompareTo(object obj)
+        {
+            Account other = obj as Account;
+
+            if(!(obj is Account) || other == null)
+            {
+                return -1;
+                //throw new Exception("Not is a object Account");
+            }
+
+            return AccountNumber.CompareTo(other.AccountNumber);
+
+            
+            // if (AccountNumber < other.AccountNumber)
+            //{
+            //    return -1;
+            //}
+            //else if(AccountNumber == other.AccountNumber)
+            //{
+            //    return 0;
+            //}
+            //else
+            //{
+            //    return 1;
+            //}
+
         }
     }
 }
