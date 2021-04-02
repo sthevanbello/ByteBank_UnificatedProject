@@ -48,6 +48,9 @@
   <ItemGroup>
     <Compile Include="ExtractValueArguments.cs" />
     <Compile Include="Extensions\ListExtensions.cs" />
+    <Compile Include="Partial\Stream\StreamBinary.cs" />
+    <Compile Include="Partial\Stream\StreamInputConsole.cs" />
+    <Compile Include="Partial\Stream\TestWriter.cs" />
     <Compile Include="Partial\Stream\FileStreamDirectly.cs" />
     <Compile Include="Partial\Stream\UsingStreamWriter.cs" />
     <Compile Include="Program.cs" />

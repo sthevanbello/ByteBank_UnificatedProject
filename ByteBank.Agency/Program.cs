@@ -20,10 +20,20 @@ namespace ByteBank.Agency
     {
         static void Main(string[] args)
         {
+            string filePath = "contas.txt";
 
-            makeUsingStreamWriter();
+            var linhas = File.ReadAllLines(filePath);
 
-            Console.WriteLine("Done");
+            var bytesFile = File.ReadAllBytes(filePath);
+
+            Console.WriteLine($"{bytesFile.Length} bytes");
+
+            File.WriteAllText("writeTextFile.txt", "testWriter");
+
+            //foreach (var item in linhas)
+            //{
+            //    Console.WriteLine(item);
+            //}
 
             Console.ReadKey();
         }
