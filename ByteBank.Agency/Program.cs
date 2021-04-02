@@ -21,46 +21,46 @@ namespace ByteBank.Agency
         {
             string filePath = "contas.txt";
 
-            using (FileStream fileStream = new FileStream(filePath, FileMode.Open))
-            {
-                try
-                {
-                    byte[] buffer = new byte[1024];
+            #region FileStream
+            //using (FileStream fileStream = new FileStream(filePath, FileMode.Open))
+            //{
+            //    try
+            //    {
+            //        byte[] buffer = new byte[1024];
+            //        int readBytes = -1;
 
-                    int readBytes = -1;
+            //        while (readBytes != 0)
+            //        {
+            //            readBytes = fileStream.Read(buffer, 0, 1024);
+            //            WriterBuffer(buffer, readBytes);
+            //        }
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        Console.WriteLine(ex.Message);
+            //    }
+            //}
+            #endregion
 
-                    while (readBytes != 0)
-                    {
-                        readBytes = fileStream.Read(buffer, 0, 1024);
-                        WriterBuffer(buffer);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
-                }
-            }
+            #region WriterBuffer
+            //static void WriterBuffer(byte[] buffer, int readBytes)
+            //{
+            //    Encoding utf8 = Encoding.UTF8;
+            //    string text = utf8.GetString(buffer, 0, readBytes);
+
+            //    Console.Write(text);
+            //}
+            #endregion
+            
+
 
 
 
             Console.ReadKey();
         }
 
-        static void WriterBuffer(byte[] buffer)
-        {
-            var utf8 = Encoding.UTF8;
+        
 
-            var text = utf8.GetString(buffer);
-
-            Console.Write(text);
-
-            //foreach (var myByte in buffer)
-            //{
-            //    Console.Write($"{myByte} ");
-
-            //}
-        }
-
-
+        
     }
 }
