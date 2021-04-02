@@ -20,7 +20,10 @@ namespace ByteBank.Agency
     {
         static void Main(string[] args)
         {
-           
+
+            makeUsingStreamWriter();
+
+            Console.WriteLine("Done");
 
             Console.ReadKey();
         }
