@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="ExtractValueArguments.cs" />
     <Compile Include="Extensions\ListExtensions.cs" />
+    <Compile Include="Partial\FileStreamDirectly.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

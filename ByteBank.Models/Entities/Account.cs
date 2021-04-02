@@ -148,7 +148,7 @@ namespace ByteBank.Entities
 
         public override string ToString()
         {
-            return $"Name: {Holder.Name} - Accont Number: {AccountNumber} - Balance: {Balance:C}";
+            return $"\nName: {Holder.Name}\nAgency number:{AgencyNumber} \tAccount Number: {AccountNumber}\tBalance: {Balance:C}";
         }
 
         public int CompareTo(object obj)

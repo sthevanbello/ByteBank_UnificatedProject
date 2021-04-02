@@ -24,11 +24,15 @@ namespace ByteBank.Entities
             } 
         }
 
-        public Client(string name, string occupation, string cpf)
+        public Client(string name, string cpf)
         {
             Name = name;
-            Occupation = occupation;
             Cpf = cpf;
+        }
+
+        public Client(string name)
+        {
+            Name = name;
         }
 
         public override bool Equals(object obj)

@@ -15,52 +15,48 @@ using System.IO;
 
 namespace ByteBank.Agency
 {
-    class Program
+    partial class Program
     {
         static void Main(string[] args)
         {
             string filePath = "contas.txt";
+            List<Account> listAccount = new List<Account>();
 
-            #region FileStream
-            //using (FileStream fileStream = new FileStream(filePath, FileMode.Open))
-            //{
-            //    try
-            //    {
-            //        byte[] buffer = new byte[1024];
-            //        int readBytes = -1;
+            using (var fileStream = new FileStream(filePath, FileMode.Open))
+            using (var streamReader = new StreamReader(fileStream))
+            {
+                while (!streamReader.EndOfStream)
+                {
+                    string line = streamReader.ReadLine();
+                    //Console.WriteLine(line);
+                    listAccount.Add(ConvertToAccount(line));
+                }
+            }
+            var orderList = listAccount.OrderBy(l => l.Holder.Name);
 
-            //        while (readBytes != 0)
-            //        {
-            //            readBytes = fileStream.Read(buffer, 0, 1024);
-            //            WriterBuffer(buffer, readBytes);
-            //        }
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        Console.WriteLine(ex.Message);
-            //    }
-            //}
-            #endregion
-
-            #region WriterBuffer
-            //static void WriterBuffer(byte[] buffer, int readBytes)
-            //{
-            //    Encoding utf8 = Encoding.UTF8;
-            //    string text = utf8.GetString(buffer, 0, readBytes);
-
-            //    Console.Write(text);
-            //}
-            #endregion
-            
-
+            foreach (var item in orderList)
+            {
+                Console.WriteLine(item);
+            }
 
 
 
             Console.ReadKey();
+
         }
 
-        
+        static Account ConvertToAccount(string line)
+        {
+            string[] fields = line.Split(' ');
+            int agencyNumber = int.Parse(fields[0]);
+            int AccountNumber = int.Parse(fields[1]);
+            double balance = double.Parse(fields[2]);
+            string name = fields[3];
 
-        
+            return new Account(new Client(name), agencyNumber, AccountNumber, balance);
+
+        }
+
+
     }
 }
